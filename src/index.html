@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="utf-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Author" content="itzmaniss">
+        <meta name="Description" content="This webpage is my personal portfolio site which i used to learn html css and javascript as well">
+        <link rel="icon" type="favicon.ico" href="/public/favicon.ico">
+        <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+
+        <style>
+            :root {
+                --text-color: #A77E5Eff; 
+                --nav-bar-bg: #393543ff;
+                --background: #383950ff;
+            }
+
+
+            body {
+                background-color: var(--background);
+                margin: 0;
+            }
+
+            .nav-bar {
+                height: 70px;
+                background-color: var(--nav-bar-bg);
+            }
+
+            .main {
+                margin-right: 10px;
+                display: flex;
+                gap: 40px;
+            }
+
+            .main-pic {
+                height: 90vh;
+                margin-top: 10px;
+            }
+
+            .intro {
+                color: var(--text-color);
+                font-size: 100px;
+                width: 1000px;
+                margin-left: 150px;
+            }
+
+            .type-out::after {
+            content: '';
+            border-right: 0.15em solid var(--text-color);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        </style>
+        <script>
+
+            function typeOut () {
+                const titles = ["Software Developer.", "Part-time Teacher."];
+                const typeOut_element = document.querySelector(".type-out");
+                const typingSpeed = 240; 
+                const deletingSpeed = 200; 
+
+                let currentTextIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                let currentText;
+
+                function typer() {
+
+                    currentText = titles[currentTextIndex];
+
+                    if (isDeleting) {
+                        typeOut_element.textContent = currentText.substring(0, charIndex - 1);
+                        charIndex --;
+                        
+                        if (charIndex === 0) {
+                            isDeleting = false;
+                            currentTextIndex = ((currentTextIndex + 1) % titles.length);
+                            setTimeout(typer, 860);
+                            return
+                        }
+                    } else {
+                        typeOut_element.textContent = currentText.substring(0, charIndex + 1);
+                        charIndex ++;
+
+                        if (charIndex === currentText.length) {
+                            isDeleting = true;
+                            setTimeout(typer, 2000);
+                            return;
+                        }
+                    }
+
+                    setTimeout(typer, isDeleting ? deletingSpeed : typingSpeed);
+                }
+                typer();                
+            }
+            document.addEventListener("DOMContentLoaded", () => {typeOut()});
+
+        </script>
+        <title>itzmaniss.dev</title>
+    </head>
+    <body>
+        <div class="nav-bar">
+
+        </div>
+
+        <div class="main" >
+
+            <div class="intro" hx-trigger = "load">
+                <p>Hey there!</p>
+                <p>I am Manish</p>
+                <p class="type-out"></p>
+            </div>
+
+            <img src="./public/me.jpg" class="main-pic">
+        </div>
+
+    </body>
+
+
+</html>
