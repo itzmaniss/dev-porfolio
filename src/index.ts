@@ -22,7 +22,7 @@ const app = new Elysia()
 
   const project_list = projects.map((project, index) => `
     <div class="project ${ index % 2 === 0 ? "even" : "odd"}">
-      <img src= "./public/${ escapehtml(project.name) }.jpg" alt= "${ escapehtml(project.name) } image" class="project-image">
+      <img src= "./public/${ escapehtml(project.name) }.webp" alt= "${ escapehtml(project.name) } image" class="project-image">
       <div class="project-content">
         <a href= ${ escapehtml(project.repo) } class="project-name" target="_blank">${ escapehtml(project.name) } </a>
         <p class="project-desc"> ${ escapehtml(project.desc) } </p>

@@ -7,6 +7,9 @@
         <meta name="Description" content="This webpage is my personal portfolio site which i used to learn html css and javascript as well">
         <link rel="icon" type="favicon.ico" href="/public/favicon.ico">
         <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
         <style>
             :root {
@@ -16,6 +19,13 @@
                 --background: #383950ff;
                 --shadow: #393543ff;
             }
+
+            .permanent-marker-regular {
+            font-family: "Permanent Marker", cursive;
+            font-weight: 400;
+            font-style: normal;
+            }
+
 
 
             body {
@@ -32,6 +42,7 @@
                 margin-right: 10px;
                 display: flex;
                 gap: 40px;
+                min-height: 100vh;
             }
 
             .main-pic {
@@ -52,6 +63,22 @@
             animation: blink 1s infinite;
             }
 
+            .about-me {
+                padding: 40px;
+                background-color: var(--nav-bar-bg); /* Using a contrasting background color */
+                border-radius: 10px; /* Rounded corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+                max-width: 800px; /* Max width for readability */
+                margin: 20px auto; /* Center alignment with auto margins */
+            }
+
+            .about-me p {
+                white-space: normal; 
+                text-align: left;
+                line-height: 1.6;
+
+            }
+
             .project-container {
                 display: flex;
                 flex-wrap: wrap;
@@ -65,10 +92,12 @@
                 text-align: center;
             }
 
-            .projects .title {
+            .title {
                 color: var(--text-color);
                 font-size: 80px;
-                font-family: "Oswald", sans-serif;
+                font-family: "Permanent Marker", cursive;
+                font-weight: 200;
+                font-style: normal;
                 margin: 0 auto;
                 width: fit-content;
             }
@@ -112,6 +141,7 @@
                 color: var(--alt-text-color);
                 font-size: 27px;
                 margin-left: 20px;
+                text-align: left;
             }
 
         @keyframes blink {
@@ -170,9 +200,6 @@
     </head>
 
     <body>
-        <div class="nav-bar">
-
-        </div>
 
         <div class="main" >
 
@@ -185,6 +212,19 @@
             <img src="./public/main-pic.jpg" class="main-pic">
         </div>
 
+        <div class="about-me">
+            <div class="title">
+                About me!
+            </div>
+            <div class="text project-desc">
+                <p>I'm a self-taught programmer with a passion for building innovative solutions. </p>
+                <p>From tinkering with Arduino to tackling complex algorithms, my journey has been marked by continuous learning and a drive to overcome challenges. </p>
+                <p>I'm excited to use my skills to create software that makes a real-world impact.</p>
+            </div>
+
+            
+        </div>
+
         <div class="projects">
             <div class="title">
                 My Favourite Projects!
@@ -192,7 +232,7 @@
             <div class="project-container" hx-post = "/projects" hx-trigger = "load">
                 Loading...
             </div>
-            <div class="idk">
+            <div class="git-repos">
                 <a href="https://github.com/itzmaniss?tab=repositories" target="_blank">Check out the rest of my projects!</a>
             </div>
         </div>
