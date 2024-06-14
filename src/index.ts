@@ -55,6 +55,31 @@ function escapehtml(text: string){
     .replace(/'/g, "&#039;");
 }
 
+async function update_db (){
+  let repos: any[] = []
+
+  await fetch("https://api.github.com/users/itzmaniss/repos").then(response => response.json()).then(data => repos = data);
+  
+  const project_info: Project[] = repos.map( rep => ({
+      name: rep.name,
+      repo: rep.html_url,
+      desc: rep.description || "No Description Available"
+  }));
+
+  const db = new Database("./public/my_projects.db")
+
+  const update = db.prepare(`INSERT INTO projects (name, desc, repo, display) VALUES (?,?,?,0)
+                              ON CONFLICT(name) DO UPDATE SET
+                              desc = excluded.desc,
+                              repo = excluded.repo,
+                              display = CASE WHEN display = 1 THEN 1 ELSE display = excluded.display END`);
+
+  for (const project of project_info) {
+      update.run(project.name, project.desc, project.repo);
+  }
+  db.close()    
+}
+
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
 );

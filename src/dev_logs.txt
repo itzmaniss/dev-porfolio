@@ -9,10 +9,14 @@ Was able to come up with the typing animation, with reference to another persons
 Day 2-> 14 June 2024;
     Goals:
         1. Complete Projects Showcase
-            a. Write Server-side code to read the database of projects and just select the ones i want to display and send to the htmx frontend
-            b. Write a update script for the database to run and collect my github repos and store it in the db.
+            a. Write Server-side code to read the database of projects and just select the ones i want to display and send to the htmx frontend ✔
+            b. Write a update script for the database to run and collect my github repos and store it in the db. ✔
                 - Side note: Maybe have an auth login site where i can select which repos i want to show and see if i want to manually edit any of the repo data.
-            c. write front-end css to make the showcase look nice and attractive.
+            c. write front-end css to make the showcase look nice and attractive. ✔
 
 completed writing server side logic for my selected projects display. Had some issues querying a db, found out i wasnt using the sqlite library built for Bun
 Started writing html for the projects div. Quite a bit to learn, in-terms of styling
+Completed writing html for projects div.
+Learnt quite a bit about display types, how to specify nested classes and how to open href in a different tab.
+
+Completed writing the update script to update my github repositories. 
