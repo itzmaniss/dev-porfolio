@@ -10,9 +10,11 @@
 
         <style>
             :root {
-                --text-color: #A77E5Eff; 
+                --text-color: #A77E5Eff;
+                --alt-text-color: #FFFFFFff; 
                 --nav-bar-bg: #393543ff;
                 --background: #383950ff;
+                --shadow: #393543ff;
             }
 
 
@@ -48,7 +50,69 @@
             content: '';
             border-right: 0.15em solid var(--text-color);
             animation: blink 1s infinite;
-        }
+            }
+
+            .project-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px;
+                padding: 30px;
+
+            }
+
+            .projects {
+                padding-top: 40px;
+                text-align: center;
+            }
+
+            .projects .title {
+                color: var(--text-color);
+                font-size: 80px;
+                font-family: "Oswald", sans-serif;
+                margin: 0 auto;
+                width: fit-content;
+            }
+
+            .project{
+                display: flex;
+                width: calc(100% - 20px);
+            }
+
+            .project.odd {
+                flex-direction: row-reverse; /* Reverse order on even items */
+            }
+
+            .project-image {
+                border-radius: 50px;
+                box-shadow: 0, 0, 10px, var(--shadow);
+                padding: 20px;
+                width: 200px;
+                height: 200px;
+                margin-left: 0;              
+            }
+
+            .project.odd .project-image {
+                margin-left: auto;
+            }
+
+            .project-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-name {
+                color: var(--text-color);
+                font-size: 60px;
+                font-family: 'Lucida Sans';
+                margin-left: 20px;
+            }
+
+            .project-desc {
+                color: var(--alt-text-color);
+                font-size: 27px;
+                margin-left: 20px;
+            }
 
         @keyframes blink {
             0% { opacity: 1; }
@@ -60,7 +124,7 @@
         <script>
 
             function typeOut () {
-                const titles = ["Software Developer.", "Part-time Teacher."];
+                const titles = ["Software Developer.","Data-Analyst.", "Tuition Teacher."];
                 const typeOut_element = document.querySelector(".type-out");
                 const typingSpeed = 240; 
                 const deletingSpeed = 200; 
@@ -104,6 +168,7 @@
         </script>
         <title>itzmaniss.dev</title>
     </head>
+
     <body>
         <div class="nav-bar">
 
@@ -117,8 +182,21 @@
                 <p class="type-out"></p>
             </div>
 
-            <img src="./public/me.jpg" class="main-pic">
+            <img src="./public/main-pic.jpg" class="main-pic">
         </div>
+
+        <div class="projects">
+            <div class="title">
+                My Favourite Projects!
+            </div>
+            <div class="project-container" hx-post = "/projects" hx-trigger = "load">
+                Loading...
+            </div>
+            <div class="idk">
+                <a href="https://github.com/itzmaniss?tab=repositories" target="_blank">Check out the rest of my projects!</a>
+            </div>
+        </div>
+        
 
     </body>
 

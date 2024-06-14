@@ -1,0 +1,18 @@
+Day 1 -> 13 June 2024;
+Finally started on the website. 
+Desided on the tech stack, Bun, Elysia, Htmx
+Wrote up a elysia.js server file for my website, took some time to learn how to auto-download my resume
+only simple routing is required for this website, hence minmal issues when writing the server
+started designing desktop site, learnt more about css, especiall about animations and how flex box works.
+Was able to come up with the typing animation, with reference to another persons project for the blinking cursor animation
+
+Day 2-> 14 June 2024;
+    Goals:
+        1. Complete Projects Showcase
+            a. Write Server-side code to read the database of projects and just select the ones i want to display and send to the htmx frontend
+            b. Write a update script for the database to run and collect my github repos and store it in the db.
+                - Side note: Maybe have an auth login site where i can select which repos i want to show and see if i want to manually edit any of the repo data.
+            c. write front-end css to make the showcase look nice and attractive.
+
+completed writing server side logic for my selected projects display. Had some issues querying a db, found out i wasnt using the sqlite library built for Bun
+Started writing html for the projects div. Quite a bit to learn, in-terms of styling
