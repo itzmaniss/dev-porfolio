@@ -144,6 +144,13 @@
                 text-align: left;
             }
 
+            .link a{
+                color: var(--text-color);
+                font-size: 25px;
+                font-family: 'Lucida Sans Regular', sans-serif;
+                text-decoration: none;
+            }
+
         @keyframes blink {
             0% { opacity: 1; }
             50% { opacity: 0; }
@@ -154,7 +161,7 @@
         <script>
 
             function typeOut () {
-                const titles = ["Software Developer.","Data-Analyst.", "Tuition Teacher."];
+                const titles = ["Software Developer.","Data-Analyst.", "Tutor."];
                 const typeOut_element = document.querySelector(".type-out");
                 const typingSpeed = 240; 
                 const deletingSpeed = 200; 
@@ -232,8 +239,18 @@
             <div class="project-container" hx-post = "/projects" hx-trigger = "load">
                 Loading...
             </div>
-            <div class="git-repos">
+            <div class="link">
                 <a href="https://github.com/itzmaniss?tab=repositories" target="_blank">Check out the rest of my projects!</a>
+            </div>
+        </div>
+
+        <div class="Experiences">
+            <div class="title">
+                My Exposures
+            </div>
+
+            <div class="experience-container" hx-post = "/experiences" hx-trigger = "load">
+                Loading...
             </div>
         </div>
         

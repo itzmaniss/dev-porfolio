@@ -14,9 +14,34 @@ Day 2-> 14 June 2024;
                 - Side note: Maybe have an auth login site where i can select which repos i want to show and see if i want to manually edit any of the repo data.
             c. write front-end css to make the showcase look nice and attractive. ✔
 
+        2. Write an about me to add to the website ✔
+
 completed writing server side logic for my selected projects display. Had some issues querying a db, found out i wasnt using the sqlite library built for Bun
 Started writing html for the projects div. Quite a bit to learn, in-terms of styling
 Completed writing html for projects div.
 Learnt quite a bit about display types, how to specify nested classes and how to open href in a different tab.
 
 Completed writing the update script to update my github repositories. 
+
+Wrote an about me section and added it to the webpage. Decided to add the navbar background color as the background for this div, makes the section pop out abit. 
+Decided to remove the navbar for now... will see how the end result is. If needed navbar can be added
+
+
+Day 3 -> 15 June 2024;
+    Goals:
+
+        1. Write Logic to check if a db file exists on server start, if db file not found, create the db file and the required tables. ✔
+
+        2. Complete Exposures/Experiences
+            a. create a db table to store the Experiences ✔
+                -> Why? So that i dont need to keep updating the html everytime i want to add new experience or remove an older, less relevent experience
+            b. Write server side code to read the table and send the html to the frontend✔
+            c. Write css to make it look nice        
+        
+        3. Start on the login page
+            a. Write html for login
+            b. write html for the db browser page
+        
+
+Wrote a function that will check if the db file exists and if it doesnt, creates the db file and the required tables in it. Called the funtion outside the elysia app to check everytime the server starts.
+Started writing the exposures div. can reuse quite a bit of the css used in projects. Thinking about adding in the background colour similar to the one added in ther about me section 
