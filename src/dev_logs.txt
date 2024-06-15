@@ -35,7 +35,7 @@ Day 3 -> 15 June 2024;
         2. Complete Exposures/Experiences
             a. create a db table to store the Experiences ✔
                 -> Why? So that i dont need to keep updating the html everytime i want to add new experience or remove an older, less relevent experience
-            b. Write server side code to read the table and send the html to the frontend✔
+            b. Write server side code to read the table and send the html to the frontend ✔
             c. Write css to make it look nice        
         
         3. Start on the login page
