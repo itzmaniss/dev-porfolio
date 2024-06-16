@@ -7,253 +7,90 @@
         <meta name="Description" content="This webpage is my personal portfolio site which i used to learn html css and javascript as well">
         <link rel="icon" type="favicon.ico" href="/public/favicon.ico">
         <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+        <script src="/public/script.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-
-        <style>
-            :root {
-                --text-color: #A77E5Eff;
-                --alt-text-color: #FFFFFFff; 
-                --nav-bar-bg: #393543ff;
-                --background: #383950ff;
-                --shadow: #393543ff;
-            }
-
-            .permanent-marker-regular {
-            font-family: "Permanent Marker", cursive;
-            font-weight: 400;
-            font-style: normal;
-            }
-
-
-
-            body {
-                background-color: var(--background);
-                margin: 0;
-            }
-
-            .nav-bar {
-                height: 70px;
-                background-color: var(--nav-bar-bg);
-            }
-
-            .main {
-                margin-right: 10px;
-                display: flex;
-                gap: 40px;
-                min-height: 100vh;
-            }
-
-            .main-pic {
-                height: 90vh;
-                margin-top: 10px;
-            }
-
-            .intro {
-                color: var(--text-color);
-                font-size: 100px;
-                width: 1000px;
-                margin-left: 150px;
-            }
-
-            .type-out::after {
-            content: '';
-            border-right: 0.15em solid var(--text-color);
-            animation: blink 1s infinite;
-            }
-
-            .about-me {
-                padding: 40px;
-                background-color: var(--nav-bar-bg); /* Using a contrasting background color */
-                border-radius: 10px; /* Rounded corners */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-                max-width: 800px; /* Max width for readability */
-                margin: 20px auto; /* Center alignment with auto margins */
-            }
-
-            .about-me p {
-                white-space: normal; 
-                text-align: left;
-                line-height: 1.6;
-
-            }
-
-            .project-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 40px;
-                padding: 30px;
-
-            }
-
-            .projects {
-                padding-top: 40px;
-                text-align: center;
-            }
-
-            .title {
-                color: var(--text-color);
-                font-size: 80px;
-                font-family: "Permanent Marker", cursive;
-                font-weight: 200;
-                font-style: normal;
-                margin: 0 auto;
-                width: fit-content;
-            }
-
-            .project{
-                display: flex;
-                width: calc(100% - 20px);
-            }
-
-            .project.odd {
-                flex-direction: row-reverse; /* Reverse order on even items */
-            }
-
-            .project-image {
-                border-radius: 50px;
-                box-shadow: 0, 0, 10px, var(--shadow);
-                padding: 20px;
-                width: 200px;
-                height: 200px;
-                margin-left: 0;              
-            }
-
-            .project.odd .project-image {
-                margin-left: auto;
-            }
-
-            .project-content {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .project-name {
-                color: var(--text-color);
-                font-size: 60px;
-                font-family: 'Lucida Sans';
-                margin-left: 20px;
-            }
-
-            .project-desc {
-                color: var(--alt-text-color);
-                font-size: 27px;
-                margin-left: 20px;
-                text-align: left;
-            }
-
-            .link a{
-                color: var(--text-color);
-                font-size: 25px;
-                font-family: 'Lucida Sans Regular', sans-serif;
-                text-decoration: none;
-            }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        </style>
-        <script>
-
-            function typeOut () {
-                const titles = ["Software Developer.","Data-Analyst.", "Tutor."];
-                const typeOut_element = document.querySelector(".type-out");
-                const typingSpeed = 240; 
-                const deletingSpeed = 200; 
-
-                let currentTextIndex = 0;
-                let charIndex = 0;
-                let isDeleting = false;
-                let currentText;
-
-                function typer() {
-
-                    currentText = titles[currentTextIndex];
-
-                    if (isDeleting) {
-                        typeOut_element.textContent = currentText.substring(0, charIndex - 1);
-                        charIndex --;
-                        
-                        if (charIndex === 0) {
-                            isDeleting = false;
-                            currentTextIndex = ((currentTextIndex + 1) % titles.length);
-                            setTimeout(typer, 860);
-                            return
-                        }
-                    } else {
-                        typeOut_element.textContent = currentText.substring(0, charIndex + 1);
-                        charIndex ++;
-
-                        if (charIndex === currentText.length) {
-                            isDeleting = true;
-                            setTimeout(typer, 2000);
-                            return;
-                        }
-                    }
-
-                    setTimeout(typer, isDeleting ? deletingSpeed : typingSpeed);
-                }
-                typer();                
-            }
-            document.addEventListener("DOMContentLoaded", () => {typeOut()});
-
-        </script>
+        <link rel="stylesheet" href="/public/styles.css">
+    
         <title>itzmaniss.dev</title>
     </head>
 
     <body>
-
-        <div class="main" >
-
-            <div class="intro" hx-trigger = "load">
-                <p>Hey there!</p>
-                <p>I am Manish</p>
-                <p class="type-out"></p>
+        <secition name="Intro">
+            <div class="main" >
+                <div class="intro" hx-trigger = "load">
+                    <p>Hey there!</p>
+                    <p>I am Manish</p>
+                    <p class="type-out"></p>
+                </div>
+                <img src="./public/main-pic.jpg" class="main-pic">
             </div>
 
-            <img src="./public/main-pic.jpg" class="main-pic">
-        </div>
-
-        <div class="about-me">
-            <div class="title">
-                About me!
-            </div>
-            <div class="text project-desc">
-                <p>I'm a self-taught programmer with a passion for building innovative solutions. </p>
-                <p>From tinkering with Arduino to tackling complex algorithms, my journey has been marked by continuous learning and a drive to overcome challenges. </p>
-                <p>I'm excited to use my skills to create software that makes a real-world impact.</p>
-            </div>
-
+            <div class="about-me">
+                <div class="title">
+                    About me!
+                </div>
+                <div class="text project-desc">
+                    <p>~ A self-taught programmer with a passion for building innovative solutions. </p>
+                    <p>~ From tinkering with Arduino to tackling complex algorithms, my journey has been marked by continuous learning and a drive to overcome challenges. </p>
+                    <p>~ Excited to use my skills to create software that makes a real-world impact.</p>
+                </div>
             
-        </div>
+            </div>
+        </secition>
 
-        <div class="projects">
-            <div class="title">
-                My Favourite Projects!
-            </div>
-            <div class="project-container" hx-post = "/projects" hx-trigger = "load">
-                Loading...
-            </div>
-            <div class="link">
-                <a href="https://github.com/itzmaniss?tab=repositories" target="_blank">Check out the rest of my projects!</a>
-            </div>
-        </div>
-
-        <div class="Experiences">
-            <div class="title">
-                My Exposures
+        <section name="exposures">
+            <div class="projects">
+                <div class="title">
+                    My Favourite Projects!
+                </div>
+                <div class="project-container" hx-post = "/projects" hx-trigger = "load">
+                    Loading...
+                </div>
+                <div class="link">
+                    <a href="https://github.com/itzmaniss?tab=repositories" target="_blank">Check out the rest of my projects here!</a>
+                </div>
             </div>
 
-            <div class="experience-container" hx-post = "/experiences" hx-trigger = "load">
-                Loading...
+            <div class="experiences">
+                <div class="title">
+                    Real-World Exposures
+                </div>
+
+                <div class="experience-container" hx-post = "/experiences" hx-trigger = "load">
+                    Loading...
+                </div>
             </div>
-        </div>
-        
+        </section>
+
+        <section name="Contact-info">
+            <h1  class="contact-header">Contact Me</h1>
+            <div class="contact-info">
+                <div class="email">
+                    <form hx-post="/email" hx-target="#response">    
+                        <span class="form-name">
+                            Name:
+                            <input type="text" name="name" placeholder="name">
+                        </span>
+                        <span class="form-message">
+                            Your Message: 
+                            <textarea name="message" placeholder="Your Message!"></textarea>
+                        </span>
+                        <button type="submit" name="email" class="email-button">Email Me📩</button>
+                        <div id="response"></div>
+                    </form>
+                    
+                </div>
+
+                <div class="socials-container">
+                    <span class="social-title">My Socials</span>
+                    <div class="social" hx-post="/socials" hx-trigger="load">
+                        socialising...
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </body>
 

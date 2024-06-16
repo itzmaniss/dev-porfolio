@@ -1,5 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 tests.ts
+public/*
+!public/styles.css
+!public/script.js
+*.db
 
 
 # dependencies
@@ -42,6 +46,3 @@ yarn-error.log*
 **/*.log
 package-lock.json
 **/*.bun
-
-palette.css
-public/

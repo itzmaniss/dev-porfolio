@@ -1,7 +1,6 @@
 import { Elysia, t } from "elysia";
 import { staticPlugin } from "@elysiajs/static";
-import { Database } from "bun:sqlite";
-import type { Project, ExperienceDetails } from "./types.ts";
+import type { Project, ExperienceDetails, Socials } from "./types.ts";
 import * as db from "./db_management";
 
 
@@ -13,9 +12,7 @@ const app = new Elysia()
 
 // Get the projects i want to display on my website from a db
 .post("/projects", () => {
-  const db = new Database("./public/my_projects.db");
-  const projects = db.prepare("SELECT name, desc, repo FROM projects WHERE display = 1").all() as Project[];
-  db.close();
+  const projects: Project[] = db.get_projects(true);
 
   const project_list = projects.map((project, index) => `
     <div class="project ${ index % 2 === 0 ? "even" : "odd"}">
@@ -26,6 +23,7 @@ const app = new Elysia()
       </div>
     </div>
     `).join(" ");
+
   return project_list;
 })
 
@@ -42,6 +40,7 @@ const app = new Elysia()
   response: t.File()
 })
 
+//sends the experiences i want to display on the website
 .post("/experiences", () => {
   const displayed_expereinces: {[key: string]: ExperienceDetails} = db.get_experiences(true);
 
@@ -54,22 +53,69 @@ const app = new Elysia()
     let deets_html = "";
 
     details.experience.forEach((deet) => {
-      deets_html += `<div class='deets'>${ escapehtml(deet) }</div>`;
+      deets_html += `<span class='deet'> - ${ escapehtml(deet) }</span>`;
     })
     const div = `<div class = "experience" >
       <div class = "experience-title ${ index % 2 === 0 ? "even" : "odd"}">
-        <span id = "experience">${ escapehtml(exp) } </span>
-        <span id = "start">${ escapehtml(details.start_date) } </span>
-        <span id = "end">${ escapehtml(details.end_date) } </span>
+        <span id = "experience">${ index + 1 }. ${ escapehtml(exp) } </span>
+        <span id="Duration">(
+          <span id = "start">${ escapehtml(details.start_date) } </span>
+          -
+          <span id = "end">${ escapehtml(details.end_date) } </span>)
+        </span>
       </div>
-      ${ deets_html }
+      <div class="deets">
+        ${ deets_html }
+      </div>
     </div>`;
     index ++;
     result += div;
   }
-  
+  return result;
 
 })
+
+// .post("/email", async ({ body }) => {
+//   const { name, message } = body as { name:string, message:string};
+
+//   const mail_to_link = `mailto:contact@itzmaniss.dev
+//                         ?subject=Hi there!
+//                         &body=Hi%20Manish!%2C%0A%20%20%20%20I%20am%2C%20${ encodeURIComponent(name) }.%20I%20am%20contacting%20you%20regarding%20${ encodeURIComponent(message) }%0A%0AWarmest%20regards%2C%0A${ encodeURIComponent(name) }
+//                         `
+//   const escapedMailtoLink = mail_to_link.replace(/#/g, '\\#'); 
+  
+
+//   return `
+//   <div hx-swap-oob="true">
+//       <script>
+//         setTimeout(() => {
+//             window.location.href = "${escapedMailtoLink}";
+//         }, 0);
+//       </script>
+//   </div>`;
+            
+                      
+// })
+.post("/email", async ({ body }) => {
+  const { name, message } = body as { name: string; message: string };
+  
+  const mailtoLink = `mailto:your@email.com?subject=New Contact Form Submission&body=Name:%20${encodeURIComponent(name)}%0A%0AMessage:%20${encodeURIComponent(message)}`;
+
+  // Escape the '#' character in the mailto link
+  const escapedMailtoLink = mailtoLink.replace(/#/g, '\\#'); 
+
+  // Use setTimeout to delay execution until after the DOM update
+  return `
+      <div hx-swap-oob="true">
+          <script>
+              setTimeout(() => {
+                  window.location.href = "${escapedMailtoLink}"; 
+              }, 0); 
+          </script>
+      </div>
+  `;
+})
+
 .listen(3000);
 
 function escapehtml(text: string){

@@ -1,0 +1,187 @@
+
+:root {
+    --text-color: #A77E5Eff;
+    --alt-text-color: #FFFFFFff; 
+    --nav-bar-bg: #393543ff;
+    --background: #383950ff;
+    --shadow: #393543ff;
+}
+
+.permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+body {
+    background-color: var(--background);
+    margin: 0;
+}
+
+.nav-bar {
+    height: 70px;
+    background-color: var(--nav-bar-bg);
+}
+
+.main {
+    margin-right: 10px;
+    display: flex;
+    gap: 40px;
+    min-height: 100vh;
+}
+
+.main-pic {
+    height: 90vh;
+    margin-top: 10px;
+}
+
+.intro {
+    color: var(--text-color);
+    font-size: 100px;
+    width: 1000px;
+    margin-left: 150px;
+}
+
+.type-out::after {
+content: '';
+border-right: 0.15em solid var(--text-color);
+animation: blink 1s infinite;
+}
+
+.about-me {
+    padding: 40px;
+    background-color: var(--nav-bar-bg); /* Using a contrasting background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    max-width: 60vw; /* Max width for readability */
+    margin: 20px auto; /* Center alignment with auto margins */
+}
+
+.about-me p {
+    white-space: normal; 
+    text-align: left;
+    line-height: 1.6;
+
+}
+
+section {
+    margin-top: 90px;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 30px;
+
+}
+
+.projects {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.title {
+    color: var(--text-color);
+    font-size: 80px;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 200;
+    font-style: normal;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.project{
+    display: flex;
+    width: calc(100% - 20px);
+}
+
+.project.odd {
+    flex-direction: row-reverse; /* Reverse order on even items */
+}
+
+.project-image {
+    border-radius: 50px;
+    box-shadow: 0, 0, 10px, var(--shadow);
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    margin-left: 0;              
+}
+
+.project.odd .project-image {
+    margin-left: auto;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.project-name {
+    color: var(--text-color);
+    font-size: 60px;
+    font-family: 'Lucida Sans';
+    margin-left: 20px;
+}
+
+.project-desc {
+    color: var(--alt-text-color);
+    font-size: 27px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.link a{
+    color: var(--text-color);
+    font-size: 25px;
+    font-family: 'Lucida Sans Regular', sans-serif;
+    text-decoration: none;
+}
+
+.experiences {
+    padding: 40px;
+    background-color: var(--nav-bar-bg); /* Using a contrasting background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    max-width: 80vw; /* Max width for readability */
+    margin: 90px auto; /* Center alignment with auto margins */
+}
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+    padding-top: 45px;
+}
+
+.experience-title {
+    color: var(--text-color);
+    font-size: 60px;
+    font-family: 'Lucida Sans';
+    margin-left: 20px;
+}
+
+.deets {
+    margin-left: 45px;
+    padding: 15px;
+
+}
+
+.deet {
+    display: block;
+    color: var(--alt-text-color);
+    font-size: 27px;
+    margin-left: 20px;
+    text-align: left;
+    padding: 15px;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

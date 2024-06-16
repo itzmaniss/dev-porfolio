@@ -9,3 +9,8 @@ export interface Project {
     end_date: string;
     experience: string[];
   }
+
+  export interface Socials {
+    name:string;
+    link:string;
+  }

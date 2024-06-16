@@ -36,12 +36,36 @@ Day 3 -> 15 June 2024;
             a. create a db table to store the Experiences ✔
                 -> Why? So that i dont need to keep updating the html everytime i want to add new experience or remove an older, less relevent experience
             b. Write server side code to read the table and send the html to the frontend ✔
-            c. Write css to make it look nice        
+            c. Write css to make it look nice ❌
         
         3. Start on the login page
-            a. Write html for login
-            b. write html for the db browser page
+            a. Write html for login ❌
+            b. write html for the db browser page ❌
         
 
 Wrote a function that will check if the db file exists and if it doesnt, creates the db file and the required tables in it. Called the funtion outside the elysia app to check everytime the server starts.
 Started writing the exposures div. can reuse quite a bit of the css used in projects. Thinking about adding in the background colour similar to the one added in ther about me section 
+Had to go off suddenly, hence was uanble to complete. 
+Decided to work on Login and "DB BROWSER" page last as its a QOL feature and is not neccesarily needed.
+
+Day 4 -> 16 June 2024;
+    Goals:
+        1. Re-Organise code structure ✔
+        2. Write CSS to make the exposures section look nicer ✔
+        3. Write Contact me information 
+        4. Start CSS for mobile/tablet view.
+
+Started with reorganising my code.
+    restructured my front-end. seperated html, css and script.js into individual files.
+    Found some vulnerabilities in my project structure. -> I was exposing my database to the public.
+    learnt more about how elysiaJS projects are structure from a file system POV. 
+    made some changes to which files go where. Need to re-route some of the calls.
+
+Wrote css to make my exposures look NICER (keyword ye i never said nice i said nicer)
+    stole most of the styles from about me anyways :)
+
+Looked through other ppl websites to get inspiration for a contact me section...
+    only thing i got was severe imposter syndrome :(
+    decided to land on a simple contact me page, with icons for social and a href to email... need to set up email server if not email not gonna work lol
+
+    
