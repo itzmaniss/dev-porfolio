@@ -19,7 +19,7 @@ const app = new Elysia()
     assets: 'public'
   }))
   // Main routes
-  .get("/", Bun.file("./index.html"))
+  .get("/", Bun.file("./src/index.html"))
   .get("/projects", "projects")
   
   // Contact form handling
