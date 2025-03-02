@@ -20,7 +20,6 @@ const app = new Elysia()
   }))
   // Main routes
   .get("/", Bun.file("./src/index.html"))
-  .get("/projects", "projects")
   
   // Contact form handling
   .post("/api/contact", async ({ body, set }) => {

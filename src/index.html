@@ -6,13 +6,31 @@
         <meta name=”robots” content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <link rel="icon" type="favicon.ico" href="/public/favicon.ico">
+        <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+        <link rel="alternate icon" type="image/png" href="/public/favicon.png">
         <script src="https://unpkg.com/htmx.org@1.9.2"></script>
         <script src="/public/script.js"></script>
-        <link rel="icon" type="favicon.ico" href="/public/favicon.ico">
         <link rel="stylesheet" href="/public/backup.css">
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <!-- <script src="https://unpkg.com/@tailwindcss/browser@4"></script> !-- For DEV only -->
+        <style>
+            .typing-cursor {
+                display: inline-block;
+                width: 10px;
+                height: 18px;
+                background-color: white;
+                animation: blink 1s step-end infinite;
+                margin-top: 2px;
+            }
+            @keyframes blink {
+                0%, 100% {
+                opacity: 1;
+                }
+                50% {
+                opacity: 0;
+                }
+            }
+        </style>
         
     </head>
 
@@ -23,7 +41,7 @@
                 <div class="hidden md:flex space-x-12 text-xl">
                     <button class="px-4 py-2 rounded-md hover:bg-emerald-800 hover:text-emerald-600 transition-all" hx-on="click: document.getElementById('about').scrollIntoView({behavior: 'smooth'});">About</button>
                     <button class="px-4 py-2 rounded-md hover:bg-emerald-800 hover:text-emerald-600 transition-all" hx-on="click: document.getElementById('projects').scrollIntoView({behavior: 'smooth'});">Projects</button>
-                    <button class="px-4 py-2 rounded-md hover:bg-emerald-800 hover:text-emerald-600 transition-all" hx-on="click: document.getElementById('skills').scrollIntoView({behavior: 'smooth'});">Skills</button>
+                    <!-- <button class="px-4 py-2 rounded-md hover:bg-emerald-800 hover:text-emerald-600 transition-all" hx-on="click: document.getElementById('skills').scrollIntoView({behavior: 'smooth'});">Skills</button> -->
                     <button class="px-4 py-2 rounded-md hover:bg-emerald-800 hover:text-emerald-600 transition-all" hx-on="click: document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Contact</button>
                 </div>
             </div>
@@ -55,14 +73,14 @@
                             </div>
                             <div id="title" class="font-semibold text-4xl"></div>
                             <div class="px-2 text-lg gap-1 flex flex-col">
-                                <div>itzmaniss@itzmaniss.dev:~$ <span class="text-white">whoami</span></div>
-                                <div class="text-white">Full Stack Developer</div> 
-                                <div>itzmaniss@itzmaniss.dev:~$ <span class="text-white">pwd</span></div>
-                                <div class="text-white">Singapore, Earth, Mily Way!</div>
-                                <div>itzmaniss@itzmaniss.dev:~$ <span class="text-white">cat interests.json</span></div>
-                                <div class="text-white">["Bots", "Automation", "Machine Learning", "WEB-DEV"]</div>
-                                <div class="flex">
-                                    <div>itzmaniss@itzmaniss.dev:~$</div>
+                                <div class="font-semibold">itzmaniss@itzmaniss.dev:~$ <span class="text-white">whoami</span></div>
+                                <div class="text-white pl-4">Full Stack Developer</div> 
+                                <div class="font-semibold">itzmaniss@itzmaniss.dev:~$ <span class="text-white">pwd</span></div>
+                                <div class="text-white pl-4">~itzmaniss/Singapore/not-making-this-up/really-here</div>
+                                <div class="font-semibold">itzmaniss@itzmaniss.dev:~$ <span class="text-white">cat interests.json</span></div>
+                                <div class="text-white pl-4">["Bots", "Automation", "Machine Learning", "WEB-DEV"]</div>
+                                <div class="flex flex-wrap">
+                                    <div class="font-semibold">itzmaniss@itzmaniss.dev:~$</div>
                                     <div class="ml-1 inline-block">
                                         <span class="typing-cursor"></span>
                                     </div>
@@ -84,6 +102,9 @@
                     </div>
                 </div>
             </div>
+
+
+            <div id="skills"></div>
 
             <div id="projects" class="flex flex-col px-4 py-8 scroll-mt-20">
                 <div class="text-fuchsia-500 text-xl md:text-2xl lg:text-4xl xl:text-6xl mx-auto justify-between items-center">FEATURED PROJECTS</div>
@@ -148,16 +169,7 @@
                 </div>
             </div>
 
-            <div id="skills">
-                
-                <i class="devicon-arduino-plain-wordmark">HELLO</i>
-
             
-                <!-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" height="50rem" width="auto" /> -->
-              
-          
-                
-            </div>
 
             <div id="contact" class="container mx-auto px-8 py-16 mb-12">
                 <div class="text-emerald-400 text-xl md:text-5xl text-center font-bold mb-12">GET IN TOUCH</div>
@@ -172,7 +184,7 @@
                     </div>
                     
                     <div class="p-6">
-                        <div class="text-emerald-300 font-mono mb-6">
+                        <div class="text-emerald-300 font-mono mb-6 font-semibold">
                             <p>itzmaniss@itzmaniss.dev:~$ <span class="text-white">mail --send</span></p>
                         </div>
                         
@@ -260,7 +272,7 @@
                         </p>
                         <p class="mt-1 font-mono text-xs text-emerald-500/60">
                             <span class="inline-block">Designed By</span>
-                            <button class="inline-block" hx-on="click: window.open('https://www.rakshiii.xyz', '-blank')">Rakshii</button>
+                            <button class="inline-block" hx-on="click: window.open('https://www.rakshiii.xyz', '_blank')">Rakshii</button>
                         </p>
                     </div>
                 </div>
