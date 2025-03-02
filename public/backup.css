@@ -85,6 +85,22 @@
     padding: 0;
     border: 0 solid;
   }
+  .typing-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background-color: white;
+    animation: blink 1s step-end infinite;
+    margin-top: 2px;
+  }
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
   html, :host {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
