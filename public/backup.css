@@ -97,22 +97,6 @@
   body {
     line-height: inherit;
   }
-  .typing-cursor {
-    display: inline-block;
-    width: 10px;
-    height: 18px;
-    background-color: white;
-    animation: blink 1s step-end infinite;
-    margin-top: 2px;
-}
-@keyframes blink {
-    0%, 100% {
-    opacity: 1;
-    }
-    50% {
-    opacity: 0;
-    }
-}
   hr {
     height: 0;
     color: inherit;
@@ -293,6 +277,9 @@
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
   .mt-12 {
     margin-top: calc(var(--spacing) * 12);
   }
@@ -347,6 +334,9 @@
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -358,6 +348,9 @@
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
+  }
+  .w-16 {
+    width: calc(var(--spacing) * 16);
   }
   .w-full {
     width: 100%;
@@ -538,9 +531,6 @@
   }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
-  }
-  .py-1 {
-    padding-block: calc(var(--spacing) * 1);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);

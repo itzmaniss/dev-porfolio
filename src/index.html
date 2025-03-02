@@ -31,13 +31,35 @@
                 }
             }
         </style>
-        
+        <div class="h-16 w-16 mx-auto" fill="none"></div>
     </head>
 
     <body id="top" class="bg-neutral-900">
         <nav name="navbar" class="fixed top-0 left-0 w-full bg-neutral-900/80 backdrop-blur-md shadow-md z-50 px-4 py-3">
             <div class="text-emerald-300 container flex justify-between items-center mx-auto">
-                <div name="logo"><button hx-on="click: document.getElementById('top').scrollIntoView({behavior: 'smooth'});" class="text-4xl font-semibold">M</button></div>
+                <div name="logo"><button hx-on="click: document.getElementById('top').scrollIntoView({behavior: 'smooth'});" class="text-4xl font-semibold">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+                        <!-- Dark background -->
+                        <rect width="64" height="64" rx="12" fill="#171717" />
+                        
+                        <!-- Terminal-style outline -->
+                        <rect x="6" y="6" width="52" height="52" rx="8" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="2" />
+                        
+                        <!-- Terminal window buttons -->
+                        <circle cx="16" cy="16" r="3" fill="#ef4444" />
+                        <circle cx="28" cy="16" r="3" fill="#f59e0b" />
+                        <circle cx="40" cy="16" r="3" fill="#10b981" />
+                        
+                        <!-- M character in terminal style -->
+                        <path d="M18 32 L24 26 L30 32 L36 26 L42 32 L42 42 L36 42 L36 34 L30 40 L24 34 L24 42 L18 42 Z" 
+                              fill="#10b981" stroke="#10b981" stroke-width="1" />
+                        
+                        <!-- Terminal cursor -->
+                        <rect x="44" y="38" width="2" height="10" fill="#10b981">
+                          <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite" />
+                        </rect>
+                      </svg>
+                </button></div>
                 <div class="hidden md:flex space-x-12 text-xl">
                     <button class="px-4 py-2 rounded-md hover:bg-emerald-800 hover:text-emerald-600 transition-all" hx-on="click: document.getElementById('about').scrollIntoView({behavior: 'smooth'});">About</button>
                     <button class="px-4 py-2 rounded-md hover:bg-emerald-800 hover:text-emerald-600 transition-all" hx-on="click: document.getElementById('projects').scrollIntoView({behavior: 'smooth'});">Projects</button>
@@ -91,7 +113,7 @@
                 
                     <div id="experience">
                         <div id="title" class="font-bold text-xl md:text-5xl text-emerald-400">>_ Experiences</div>
-                        <ul class="text-emerald-300 text-lg md:text-4xl py-1 space-y-4 pl-6 list-disc">
+                        <ul class="text-emerald-300 text-lg md:text-4xl space-y-4 pl-6 list-disc my-6">
                             <li>Automation</li>
                             <li>Bots</li>
                             <li>Web-Scraping & Data Extraction</li>
@@ -171,7 +193,7 @@
 
             
 
-            <div id="contact" class="container mx-auto px-8 py-16 mb-12">
+            <div id="contact" class="container mx-auto px-8 py-16 mb-12m scroll-mt-20">
                 <div class="text-emerald-400 text-xl md:text-5xl text-center font-bold mb-12">GET IN TOUCH</div>
                 
                 <div class="max-w-2xl mx-auto border border-emerald-400 rounded-2xl bg-neutral-900/90 shadow-lg shadow-emerald-900/30 overflow-hidden">
