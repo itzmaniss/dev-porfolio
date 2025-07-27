@@ -18,6 +18,9 @@ const app = new Elysia()
   .use(staticPlugin({
     assets: 'public'
   }))
+  // Health check endpoint
+  .get("/health", () => ({ status: "ok", timestamp: new Date().toISOString() }))
+  
   // Main routes
   .get("/", Bun.file("./src/index.html"))
   
